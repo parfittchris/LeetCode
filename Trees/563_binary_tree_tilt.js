@@ -17,5 +17,15 @@
  * @return {number}
  */
 var findTilt = function (root) {
+    let tilt = 0;
 
+    function traverse(node) {
+        if (node === null) return 0;
+
+        let left = traverse(node.left);
+        let right = traverse(node.right);
+
+        tilt += Math.abs(left - right);
+        return node.val + left + right
+    }
 };
