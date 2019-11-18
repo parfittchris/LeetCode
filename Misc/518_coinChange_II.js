@@ -13,15 +13,15 @@ var change = function (amount, coins) {
     let dp = Array(amount + 1).fill(0);
     dp[0] = 1;
 
-    for (let j = 0; j < coins.length; j++) {
-        for (let i = 0; i <= amount; i++) {
-            if (i >= coins[j]) {
-                dp[i] = dp[i] + dp[i - coins[j]]
+    for (let i = 0; i < coins.length; i++) {
+        for (let j = 1; j <= amount; j++) {
+            if (j >= coins[i]) {
+                dp[j] += dp[j - coins[i]];
             }
         }
     }
-    console.log(dp)
-    return dp[amount]
+
+    return dp[amount];
 };
 
 
