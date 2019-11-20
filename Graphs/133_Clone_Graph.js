@@ -18,11 +18,11 @@ var cloneGraph = function (node) {
     return traverse(node)
 
     function traverse(node) {
-        if (!node) return node;
+        if (!node) return
 
         if (!visited[node.val]) {
             visited[node.val] = new Node(node.val)
-            visited[node.val].neighbors = node.neighbors.map(neighbor => traverse(neighbor))
+            visited[node.val].neighbors = node.val.neighbors.map(neighbor => traverse(neighbor))
         }
 
         return visited[node.val]
