@@ -29,4 +29,6 @@ var isSymmetric = function (root) {
 
         return (traverse(left.left, right.right) && traverse(left.right, right.left))
     }
+
+    return traverse(root);
 };

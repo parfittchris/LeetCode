@@ -7,5 +7,20 @@
 
 
 function balancedTree(root) {
+    if (!root) return null;
 
+    function traverse(node) {
+        if (!node) return 0;
+
+        let left = traverse(node.left);
+        let right = traverse(node.right);
+
+        if (left === -1 || right === -1 || Math.abs(left - right) > 1) {
+            return -1
+        }
+
+        return Math.max(left, right) + 1
+    }
+
+    return traverse(root) !== -1;
 }
