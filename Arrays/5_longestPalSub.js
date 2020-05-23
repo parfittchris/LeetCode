@@ -9,6 +9,7 @@ var longestPalindrome = function (s) {
 
     for (let i = 0; i < s.length; i++) {
         for (let j = 0; j < s.length; j++) {
+            
             let word = s.substring(i, j + 1)
             if (isPal(word) === true) subs[word] = word.length;
         }
@@ -31,6 +32,7 @@ let isPal = function (s) {
     let j = s.length - 1;
 
     while (i < j) {
+
         if (s[i] !== s[j]) {
             return false;
         } else {
@@ -44,4 +46,4 @@ let isPal = function (s) {
 let s = "babad";
 // Output: "bab"
 
-console.log(longestPalindrome('bb'))
+console.log(longestPalindrome(s))
